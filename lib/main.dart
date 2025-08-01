@@ -27,14 +27,11 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-  // List to hold shopping items and their quantities
   List<Map<String, String>> shoppingList = [];
 
-  // Controllers for the text fields
   final TextEditingController _itemController = TextEditingController();
   final TextEditingController _quantityController = TextEditingController();
 
-  // Function to add an item to the list
   void _addItem() {
     if (_itemController.text.isNotEmpty && _quantityController.text.isNotEmpty) {
       setState(() {
@@ -48,7 +45,6 @@ class _ListPageState extends State<ListPage> {
     }
   }
 
-  // Function to show dialog for deleting an item
   void _showDeleteDialog(int index) {
     showDialog(
       context: context,
@@ -89,7 +85,6 @@ class _ListPageState extends State<ListPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Row to align the item name and quantity TextField horizontally
             Row(
               children: [
                 Expanded(
@@ -117,7 +112,6 @@ class _ListPageState extends State<ListPage> {
               ],
             ),
             const SizedBox(height: 20),
-            // Show the list if it's not empty
             shoppingList.isNotEmpty
                 ? Expanded(
               child: ListView.builder(
